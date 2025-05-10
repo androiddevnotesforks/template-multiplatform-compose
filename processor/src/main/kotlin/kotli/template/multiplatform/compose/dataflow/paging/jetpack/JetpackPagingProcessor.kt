@@ -11,6 +11,7 @@ import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
 import kotli.template.multiplatform.compose.platform.client.MobileAndDesktopProcessor
 import kotlin.reflect.KClass
+import kotlin.time.Duration.Companion.hours
 import kotlin.time.Duration.Companion.minutes
 
 object JetpackPagingProcessor : BaseFeatureProcessor() {
@@ -26,7 +27,7 @@ object JetpackPagingProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String =
         "https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data"
 
-    override fun getIntegrationEstimate(state: TemplateState): Long = 30.minutes.inWholeMilliseconds
+    override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
 
     override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
         MobileAndDesktopProcessor::class,

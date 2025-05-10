@@ -8,6 +8,7 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
 import kotli.template.multiplatform.compose.Tags
+import kotlin.time.Duration.Companion.hours
 import kotlin.time.Duration.Companion.minutes
 
 object MultiplatformPagingProcessor : BaseFeatureProcessor() {
@@ -20,7 +21,7 @@ object MultiplatformPagingProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String =
         "https://github.com/cashapp/multiplatform-paging?tab=readme-ov-file#usage"
 
-    override fun getIntegrationEstimate(state: TemplateState): Long = 30.minutes.inWholeMilliseconds
+    override fun getIntegrationEstimate(state: TemplateState): Long = 2.hours.inWholeMilliseconds
 
     override fun doRemove(state: TemplateState) {
         state.onApplyRules(
