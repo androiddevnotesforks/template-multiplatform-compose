@@ -17,8 +17,8 @@ object ClientPlatformProvider : BaseFeatureProvider() {
     override fun getType(): FeatureType = PlatformType
 
     override fun createProcessors(): List<FeatureProcessor> = listOf(
-        IOSPlatformProcessor,
         AndroidPlatformProcessor,
+        IOSPlatformProcessor,
         JvmPlatformProcessor,
         JsPlatformProcessor,
         MobileAndDesktopProcessor

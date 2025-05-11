@@ -106,8 +106,8 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         ComponentProvider,
 
         // testing
-        LoggingProvider,
         DevelopmentProvider,
+        LoggingProvider,
 
         // guides
         DocumentationProvider,
