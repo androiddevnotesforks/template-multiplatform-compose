@@ -1,0 +1,1 @@
+The `Payments Feature` provides functionality for in-app purchases and subscriptions using RevenueCat. It includes a simple API to show a paywall for users to purchase premium features or subscriptions.

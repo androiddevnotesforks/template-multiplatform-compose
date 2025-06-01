@@ -23,7 +23,7 @@ object JsPlatformProcessor : PlatformProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppWebPackConfigDir,
+            Rules.ClientWebPackConfigDir,
             RemoveFile()
         )
         state.onApplyRules(

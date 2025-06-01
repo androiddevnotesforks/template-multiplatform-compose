@@ -10,62 +10,40 @@ object Rules {
     const val AndroidSrcDir = "*/src/androidMain"
     const val JvmSrcDir = "*/src/jvmMain"
     const val JsSrcDir = "*/src/jsMain"
-    const val IosSrcDir = "*/src/ios*"
-    const val IosAppDir = "iosApp"
+    const val IosSrcDir = "*/ios*"
     const val GradleProperties = "gradle.properties"
 
     // root
     const val RootSettingsGradle = "settings.gradle.kts"
     const val RootBuildGradle = "build.gradle.kts"
 
-    // app
-    const val App = "app"
-    const val AppSrc = "${App}/src"
-    const val AppAssembleDir = "${App}/assemble"
-    const val AppBuildGradle = "${App}/build.gradle.kts"
-    const val AppCommonMain = "${AppSrc}/commonMain"
-    const val AppCommonMainRoot = "${AppCommonMain}/kotlin/kotli/app"
-    const val AppPresentation = "${AppCommonMainRoot}/app/presentation"
-    const val AppConfigKt = "${AppCommonMainRoot}/app/AppConfig.kt"
-    const val AppViewModelKt = "${AppPresentation}/AppViewModel.kt"
-    const val AppKt = "${AppPresentation}/App.kt"
-    const val AppCommon = "${AppCommonMainRoot}/common"
-    const val AppCommonPresentation = "${AppCommon}/presentation"
-    const val AppCommonConfigKt = "${AppCommon}/CommonConfig.kt"
-    const val AppProguardRulesPro = "${AppAssembleDir}/proguard-rules.pro"
-    const val AppWebPackConfigDir = "app/webpack.config.d"
-    const val AppSqlDelightConfigJs = "${AppWebPackConfigDir}/sqljs-config.js"
-    const val AppPlatformConfigKt = "*/PlatformConfig.*.kt"
-    const val AppCommonNavigation = "${AppCommonPresentation}/navigation"
-    const val AppCommonDatabase = "${AppCommon}/data/source/database"
-    const val AppPasscode = "${AppCommonMainRoot}/passcode"
-    const val AppTheme = "${AppCommonMainRoot}/theme"
-    const val AppThemeConfigKt = "${AppTheme}/ThemeConfig.kt"
-    const val AppAuth = "${AppCommonMainRoot}/auth"
-    const val AppProfile = "${AppCommonMainRoot}/profile"
-    const val AppAuthCommonConfigKt = "${AppAuth}/common/CommonConfig.kt"
-    const val AppAuthSignInWithGoogleDir = "${AppAuth}/signin/google"
-    const val AppAuthSignInWithGoogleConfigKt = "${AppAuthSignInWithGoogleDir}/SignInWithGoogleConfig.kt"
-    const val AppNavigation = "${AppCommonMainRoot}/navigation"
-    const val AppNavigationProvider = "${AppNavigation}/provide/presentation/NavigationProvider.kt"
-    const val AppBottomNavigationProvider = "${AppNavigation}/provide/presentation/BottomNavigationProvider.kt"
-    const val AppNavigationViewModel = "${AppNavigation}/provide/presentation/NavigationViewModel.kt"
-    const val AppShowcases = "${AppCommonMainRoot}/showcases"
-    const val AppShowcasesDataflow = "${AppShowcases}/presentation/dataflow"
-    const val AppShowcasesUserflow = "${AppShowcases}/presentation/userflow"
-    const val AppShowcasesViewModelKt = "${AppShowcases}/presentation/ShowcasesViewModel.kt"
-    const val AppShowcasesConfigKt = "${AppShowcases}/ShowcasesConfig.kt"
-    const val AppFeatureTemplate = "${AppCommonMainRoot}/template/feature"
+    // client
+    const val Client = "client"
+    const val ClientSrc = "${Client}/src"
+    const val ClientAssembleDir = "${Client}/assemble"
+    const val ClientBuildGradle = "${Client}/build.gradle.kts"
+    const val ClientCommonMain = "${ClientSrc}/commonMain"
+    const val ClientCommonMainRoot = "${ClientCommonMain}/kotlin/kotli"
+    const val ClientAppRoot = "${ClientCommonMainRoot}/app/"
+    const val ClientAppConfigKt = "${ClientAppRoot}/AppConfig.kt"
+    const val ClientAppViewModelKt = "${ClientAppRoot}/presentation/AppViewModel.kt"
+    const val ClientCommon = "${ClientCommonMainRoot}/common"
+    const val ClientCommonConfigKt = "${ClientCommon}/CommonConfig.kt"
+    const val ClientProguardRulesPro = "${ClientAssembleDir}/proguard-rules.pro"
+    const val ClientWebPackConfigDir = "${Client}/webpack.config.d"
+    const val ClientSqlDelightConfigJs = "${ClientWebPackConfigDir}/sqljs-config.js"
+    const val ClientPlatformConfigKt = "*/PlatformConfig.*.kt"
+    const val ClientCommonDatabase = "${ClientCommon}/data/source/database"
 
-    // backend
-    const val BackendDir = "backend"
-    const val BackendSrc = "${BackendDir}/src"
+    // server
+    const val ServerDir = "server"
+    const val ServerSrc = "${ServerDir}/src"
 
-    // domain
+    // shared -> domain
     const val DomainDir = "shared/domain"
     const val DomainBuildGradle = "${DomainDir}/build.gradle.kts"
 
-    // data
+    // shared -> data
     const val DataDir = "shared/data"
     const val DataDataSourceDir = "${DataDir}/src/commonMain/kotlin/shared/data/source"
     const val DataBuildGradle = "${DataDir}/build.gradle.kts"
@@ -89,11 +67,10 @@ object Rules {
     const val ExpressionSource = "*/*ExpressionEvaluator*.kt"
     const val AiSource = "*/*AiSource*.kt"
 
-    // presentation
+    // shared -> presentation
     const val PresentationDir = "shared/presentation"
     const val PresentationBuildGradle = "${PresentationDir}/build.gradle.kts"
     const val PresentationUiDir = "${PresentationDir}/src/commonMain/kotlin/shared/presentation/ui"
-    const val PresentationIconsKt = "${PresentationUiDir}/icon/DsIcons.kt"
     const val PresentationComponentDir = "${PresentationUiDir}/component"
     const val PresentationComponentFilePicker = "${PresentationComponentDir}/DsFilePicker.kt"
     const val PresentationComponentMarkdown = "${PresentationComponentDir}/DsMarkdown.kt"

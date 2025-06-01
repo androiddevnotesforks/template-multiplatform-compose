@@ -7,45 +7,53 @@ import kotli.engine.TemplateState
 import kotli.engine.model.Feature
 import kotli.engine.model.Layer
 import kotli.engine.model.LayerTypes
-import kotli.engine.provider.documentation.DocumentationProvider
-import kotli.engine.provider.documentation.readme.ReadmeProcessor
 import kotli.engine.template.rule.RenamePackage
 import kotli.engine.template.rule.ReplaceMarkedText
 import kotli.template.multiplatform.compose.common.CommonProvider
-import kotli.template.multiplatform.compose.dataflow.ai.AiProvider
-import kotli.template.multiplatform.compose.dataflow.analytics.AnalyticsProvider
-import kotli.template.multiplatform.compose.dataflow.cache.CacheProvider
-import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProvider
-import kotli.template.multiplatform.compose.dataflow.config.ConfigProvider
-import kotli.template.multiplatform.compose.dataflow.database.DatabaseProvider
-import kotli.template.multiplatform.compose.dataflow.encryption.EncryptionProvider
-import kotli.template.multiplatform.compose.dataflow.expression.ExpressionProvider
-import kotli.template.multiplatform.compose.dataflow.http.HttpProvider
-import kotli.template.multiplatform.compose.dataflow.paging.PagingProvider
-import kotli.template.multiplatform.compose.dataflow.settings.SettingsProvider
-import kotli.template.multiplatform.compose.essentials.buildtool.BuildToolProvider
-import kotli.template.multiplatform.compose.essentials.design.DesignSystemProvider
-import kotli.template.multiplatform.compose.essentials.di.DependencyInjectionProvider
-import kotli.template.multiplatform.compose.essentials.navigation.NavigationProvider
-import kotli.template.multiplatform.compose.essentials.toolkit.ToolkitProvider
-import kotli.template.multiplatform.compose.guides.samples.SamplesProvider
-import kotli.template.multiplatform.compose.guides.templates.TemplatesProvider
+import kotli.template.multiplatform.compose.data.ai.AiProvider
+import kotli.template.multiplatform.compose.data.analytics.AnalyticsProvider
+import kotli.template.multiplatform.compose.data.cache.CacheProvider
+import kotli.template.multiplatform.compose.data.common.CommonDataProvider
+import kotli.template.multiplatform.compose.data.config.ConfigProvider
+import kotli.template.multiplatform.compose.data.database.DatabaseProvider
+import kotli.template.multiplatform.compose.data.encryption.EncryptionProvider
+import kotli.template.multiplatform.compose.data.expression.ExpressionProvider
+import kotli.template.multiplatform.compose.data.http.HttpProvider
+import kotli.template.multiplatform.compose.data.paging.PagingProvider
+import kotli.template.multiplatform.compose.data.settings.SettingsProvider
+import kotli.template.multiplatform.compose.dev.debugging.DebuggingProvider
+import kotli.template.multiplatform.compose.dev.debugging.hotreload.HotReloadProcessor
+import kotli.template.multiplatform.compose.dev.logging.LoggingProvider
+import kotli.template.multiplatform.compose.feature.ads.AdsFeatureProvider
+import kotli.template.multiplatform.compose.feature.analytics.AnalyticsFeatureProvider
+import kotli.template.multiplatform.compose.feature.auth.AuthFeatureProvider
+import kotli.template.multiplatform.compose.feature.common.CommonFeatureProvider
+import kotli.template.multiplatform.compose.feature.loader.LoaderFeatureProvider
+import kotli.template.multiplatform.compose.feature.navigation.NavigationFeatureProvider
+import kotli.template.multiplatform.compose.feature.onboarding.OnboardingFeatureProvider
+import kotli.template.multiplatform.compose.feature.passcode.PasscodeFeatureProvider
+import kotli.template.multiplatform.compose.feature.payments.PaymentsFeatureProvider
+import kotli.template.multiplatform.compose.feature.profile.ProfileFeatureProvider
+import kotli.template.multiplatform.compose.feature.rate.RateFeatureProvider
+import kotli.template.multiplatform.compose.feature.settings.SettingsFeatureProvider
+import kotli.template.multiplatform.compose.feature.splash.SplashFeatureProvider
+import kotli.template.multiplatform.compose.feature.support.SupportFeatureProvider
+import kotli.template.multiplatform.compose.feature.theme.ThemeFeatureProvider
+import kotli.template.multiplatform.compose.feature.update.UpdateFeatureProvider
+import kotli.template.multiplatform.compose.foundation.buildtool.BuildToolProvider
+import kotli.template.multiplatform.compose.foundation.design.DesignSystemProvider
+import kotli.template.multiplatform.compose.foundation.di.DIProvider
+import kotli.template.multiplatform.compose.foundation.navigation.NavigationProvider
+import kotli.template.multiplatform.compose.foundation.uikit.UiKitProvider
 import kotli.template.multiplatform.compose.platform.client.ClientPlatformProvider
 import kotli.template.multiplatform.compose.platform.client.android.AndroidPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.ios.IOSPlatformProcessor
 import kotli.template.multiplatform.compose.platform.client.jvm.JvmPlatformProcessor
 import kotli.template.multiplatform.compose.platform.server.ServerPlatformProvider
 import kotli.template.multiplatform.compose.platform.shared.SharedPlatformProvider
-import kotli.template.multiplatform.compose.showcases.ShowcasesProvider
-import kotli.template.multiplatform.compose.testing.development.DevelopmentProvider
-import kotli.template.multiplatform.compose.testing.development.hotreload.HotReloadProcessor
-import kotli.template.multiplatform.compose.testing.logging.LoggingProvider
-import kotli.template.multiplatform.compose.userflow.auth.AuthProvider
-import kotli.template.multiplatform.compose.userflow.common.component.ComponentProvider
-import kotli.template.multiplatform.compose.userflow.navigation.NavigationBarProvider
-import kotli.template.multiplatform.compose.userflow.passcode.PasscodeProvider
-import kotli.template.multiplatform.compose.userflow.profile.ProfileProvider
-import kotli.template.multiplatform.compose.userflow.theme.ThemeProvider
+import kotli.template.multiplatform.compose.ui.component.file.FileProvider
+import kotli.template.multiplatform.compose.ui.component.image.ImageProvider
+import kotli.template.multiplatform.compose.ui.component.text.TextProvider
 
 object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
@@ -62,30 +70,33 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 Feature(IOSPlatformProcessor.ID),
                 Feature(AndroidPlatformProcessor.ID),
                 Feature(JvmPlatformProcessor.ID),
-                Feature(HotReloadProcessor.ID),
-                Feature(ReadmeProcessor.getId())
+                Feature(HotReloadProcessor.ID)
             )
         )
     )
 
     override fun createProviders(): List<FeatureProvider> = listOf(
-        // common
+        // Common
         CommonProvider,
 
-        // essentials
-        ToolkitProvider,
+        // Foundation
+        DIProvider,
+        UiKitProvider,
         NavigationProvider,
         DesignSystemProvider,
-        DependencyInjectionProvider,
         BuildToolProvider,
 
-        // platform
+        // Platforms
         ClientPlatformProvider,
         ServerPlatformProvider,
         SharedPlatformProvider,
 
-        // dataflow
-        CommonDataFlowProvider,
+        // Dev Tools
+        DebuggingProvider,
+        LoggingProvider,
+
+        // Data Layer
+        CommonDataProvider,
         SettingsProvider,
         EncryptionProvider,
         ExpressionProvider,
@@ -97,25 +108,28 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         AnalyticsProvider,
         AiProvider,
 
-        // userflow
-        NavigationBarProvider,
-        ThemeProvider,
-        AuthProvider,
-        PasscodeProvider,
-        ProfileProvider,
-        ComponentProvider,
+        // UI Layer
+        TextProvider,
+        ImageProvider,
+        FileProvider,
 
-        // testing
-        DevelopmentProvider,
-        LoggingProvider,
-
-        // guides
-        DocumentationProvider,
-        SamplesProvider,
-        TemplatesProvider,
-
-        // showcases
-        ShowcasesProvider,
+        // User Features
+        CommonFeatureProvider,
+        AdsFeatureProvider,
+        AnalyticsFeatureProvider,
+        AuthFeatureProvider,
+        LoaderFeatureProvider,
+        NavigationFeatureProvider,
+        OnboardingFeatureProvider,
+        PasscodeFeatureProvider,
+        PaymentsFeatureProvider,
+        ProfileFeatureProvider,
+        RateFeatureProvider,
+        SettingsFeatureProvider,
+        SplashFeatureProvider,
+        SupportFeatureProvider,
+        ThemeFeatureProvider,
+        UpdateFeatureProvider
     )
 
     override fun processBefore(state: TemplateState) {
@@ -140,23 +154,23 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
         state.onApplyRules(
             Rules.IosConfig,
             ReplaceMarkedText(
-                text = "app",
+                text = "kotli",
                 marker = "BUNDLE_ID",
                 replacer = state.layer.namespace,
                 singleLine = true
             ),
             ReplaceMarkedText(
-                text = "Template",
+                text = "Kotli",
                 marker = "APP_NAME",
                 replacer = state.layer.name,
                 singleLine = true
             )
         )
         state.onApplyRules(
-            Rules.AppBuildGradle,
+            Rules.ClientBuildGradle,
             ReplaceMarkedText(
-                text = "kotli.app",
-                marker = "kotli.app",
+                text = "kotli",
+                marker = "{kotli.namespace}",
                 replacer = state.layer.namespace
             )
         )
@@ -170,10 +184,10 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            Rules.AppProguardRulesPro,
+            Rules.ClientProguardRulesPro,
             ReplaceMarkedText(
-                text = "kotli.app",
-                marker = "kotli.app",
+                text = "kotli",
+                marker = "kotli.",
                 replacer = state.layer.namespace
             )
         )
@@ -182,15 +196,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
     override fun processAfter(state: TemplateState) {
         val name = normalizeRootName(state.layer.name)
         state.onApplyRules(
-            "${Rules.AppSrc}/*.kt",
-            ReplaceMarkedText(
-                text = "import template.app.",
-                marker = "import template.app.",
-                replacer = "import ${name}.app."
-            )
-        )
-        state.onApplyRules(
-            Rules.PresentationIconsKt,
+            "*.kt",
             ReplaceMarkedText(
                 text = "import template.",
                 marker = "import template.",
@@ -198,31 +204,31 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             )
         )
         state.onApplyRules(
-            "${Rules.BackendSrc}/*.yaml",
+            "${Rules.ServerSrc}/*.yaml",
             ReplaceMarkedText(
-                text = "kotli.app.",
-                marker = "kotli.app.",
-                replacer = "${state.layer.namespace}."
+                text = "kotli",
+                marker = "kotli",
+                replacer = state.layer.namespace
             )
         )
-        renamePackage(state, "${Rules.AppSrc}/androidMain/kotlin")
-        renamePackage(state, "${Rules.AppSrc}/commonMain/kotlin")
-        renamePackage(state, "${Rules.AppSrc}/iosArm64Main/kotlin")
-        renamePackage(state, "${Rules.AppSrc}/iosMain/kotlin")
-        renamePackage(state, "${Rules.AppSrc}/iosSimulatorArm64Main/kotlin")
-        renamePackage(state, "${Rules.AppSrc}/iosX64Main/kotlin")
-        renamePackage(state, "${Rules.AppSrc}/jsMain/kotlin")
-        renamePackage(state, "${Rules.AppSrc}/jvmMain/kotlin")
-        renamePackage(state, "${Rules.AppSrc}/mobileAndDesktopMain/kotlin")
-        renamePackage(state, "${Rules.BackendSrc}/main/kotlin")
-        renamePackage(state, "${Rules.BackendSrc}/test/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/androidMain/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/commonMain/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/iosArm64Main/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/iosMain/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/iosSimulatorArm64Main/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/iosX64Main/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/jsMain/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/jvmMain/kotlin")
+        renamePackage(state, "${Rules.ClientSrc}/mobileAndDesktopMain/kotlin")
+        renamePackage(state, "${Rules.ServerSrc}/main/kotlin")
+        renamePackage(state, "${Rules.ServerSrc}/test/kotlin")
     }
 
     private fun renamePackage(state: TemplateState, root: String) {
         state.onApplyRules(
             root,
             RenamePackage(
-                "kotli.app",
+                "kotli",
                 state.layer.namespace
             )
         )

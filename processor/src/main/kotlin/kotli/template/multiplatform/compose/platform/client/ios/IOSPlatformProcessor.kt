@@ -23,10 +23,6 @@ object IOSPlatformProcessor : PlatformProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.IosAppDir,
-            RemoveFile()
-        )
-        state.onApplyRules(
             VersionCatalogRules(
                 RemoveMarkedLine("client-darwin")
             )
