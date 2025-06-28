@@ -1,0 +1,1 @@
+The `Auth Feature` provides functionality for user authentication in your application. The Stub implementation is a mock version that simulates authentication flows without connecting to a real authentication service, which is useful for development and testing.

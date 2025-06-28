@@ -48,7 +48,7 @@ private fun DsIcon(
     )
 }
 
-// {userflow.coil}
+// {ui.component.image.coil}
 @Composable
 @NonRestartableComposable
 private fun DsIcon(
@@ -63,7 +63,7 @@ private fun DsIcon(
     )
 }
 
-// {userflow.coil}
+// {ui.component.image.coil}
 @Composable
 @NonRestartableComposable
 private fun DsIcon(

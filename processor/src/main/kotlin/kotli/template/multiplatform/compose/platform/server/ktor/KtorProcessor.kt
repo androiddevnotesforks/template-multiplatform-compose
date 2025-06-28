@@ -32,7 +32,7 @@ object KtorProcessor : PlatformProcessor() {
     override fun doRemove(state: TemplateState) {
         super.doRemove(state)
         state.onApplyRules(
-            Rules.BackendDir,
+            Rules.ServerDir,
             RemoveFile()
         )
         state.onApplyRules(

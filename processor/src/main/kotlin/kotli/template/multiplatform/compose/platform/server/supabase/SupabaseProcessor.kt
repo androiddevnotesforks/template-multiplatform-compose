@@ -10,8 +10,8 @@ import kotli.engine.template.rule.RemoveFile
 import kotli.engine.template.rule.RemoveMarkedBlock
 import kotli.engine.template.rule.RemoveMarkedLine
 import kotli.template.multiplatform.compose.Rules
-import kotli.template.multiplatform.compose.dataflow.common.CommonDataFlowProcessor
-import kotli.template.multiplatform.compose.dataflow.http.ktor.KtorHttpProcessor
+import kotli.template.multiplatform.compose.data.common.CommonDataProcessor
+import kotli.template.multiplatform.compose.data.http.ktor.KtorHttpProcessor
 import kotli.template.multiplatform.compose.platform.PlatformProcessor
 import kotlin.reflect.KClass
 import kotlin.time.Duration.Companion.hours
@@ -28,27 +28,15 @@ object SupabaseProcessor : PlatformProcessor() {
     override fun getConfigurationEstimate(state: TemplateState): Long = 4.hours.inWholeMilliseconds
 
     override fun dependencies(): List<KClass<out FeatureProcessor>> = listOf(
-        CommonDataFlowProcessor::class,
+        CommonDataProcessor::class,
         KtorHttpProcessor::class
     )
 
     override fun doApply(state: TemplateState) {
         super.doApply(state)
         state.onApplyRules(
-            Rules.AppCommonConfigKt,
+            Rules.ClientCommonConfigKt,
             CleanupMarkedBlock("{supabase}")
-        )
-        state.onApplyRules(
-            Rules.AppAuthCommonConfigKt,
-            RemoveMarkedLine("stub")
-        )
-        state.onApplyRules(
-            Rules.AppAuthSignInWithGoogleConfigKt,
-            RemoveMarkedLine("stub")
-        )
-        state.onApplyRules(
-            "${Rules.AppAuthSignInWithGoogleDir}/presentation/flow/StubFlowProvider.kt",
-            RemoveFile()
         )
     }
 
@@ -68,21 +56,9 @@ object SupabaseProcessor : PlatformProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            Rules.AppCommonConfigKt,
+            Rules.ClientCommonConfigKt,
             RemoveMarkedBlock("{supabase}"),
             RemoveMarkedLine("supabase")
-        )
-        state.onApplyRules(
-            Rules.AppAuthCommonConfigKt,
-            RemoveMarkedLine("supabase")
-        )
-        state.onApplyRules(
-            Rules.AppAuthSignInWithGoogleConfigKt,
-            RemoveMarkedLine("supabase")
-        )
-        state.onApplyRules(
-            "${Rules.AppAuthSignInWithGoogleDir}/presentation/flow/SupabaseFlowProvider.kt",
-            RemoveFile()
         )
     }
 }

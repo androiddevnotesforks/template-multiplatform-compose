@@ -123,9 +123,9 @@ All documentation related to features can also be found and accessed online, up-
 
 When a project is configured and downloaded via [Kotli](https://kotli.xyz/project), it also provides showcases of all included features. Furthermore, the screen with showcases is configured as the initial screen when running the downloaded template.
 
-|                   Showcases :: Overview                   |                Showcases :: Theme Dialog                |                  Showcases :: Key-Value Storage                   |
-|:---------------------------------------------------------:|:-------------------------------------------------------:|:-----------------------------------------------------------------:|
-| ![Showcases Overview](images/screenshots/showcases_overview.jpg) | ![Theme Dialog](images/screenshots/showcases_theme_dialog.jpg) | ![Key-Value Storage](images/screenshots/showcases_key_value_objects.jpg) |
+|            Home Screen             |          Features Screen           |          Basic Theme API           |        Basic Navigation API        |
+|:----------------------------------:|:----------------------------------:|:----------------------------------:|:----------------------------------:|
+| ![Image](images/screenshots/1.png) | ![Image](images/screenshots/2.png) | ![Image](images/screenshots/3.png) | ![Image](images/screenshots/4.png) |
 
 # How to use
 
@@ -146,44 +146,33 @@ The generated project will include a similar table in its README.MD file, but wi
 
 | Group | Feature | Overview | Configuration | Usage |
 |-------|---------|----------|---------------|-------|
-| Platforms | iOS | [Link](docs/Platforms/iOS/overview.md) | - | [Link](docs/Platforms/iOS/usage.md) |
 | Platforms | Android | [Link](docs/Platforms/Android/overview.md) | - | [Link](docs/Platforms/Android/usage.md) |
+| Platforms | iOS | [Link](docs/Platforms/iOS/overview.md) | - | [Link](docs/Platforms/iOS/usage.md) |
 | Platforms | Desktop | [Link](docs/Platforms/Desktop/overview.md) | - | [Link](docs/Platforms/Desktop/usage.md) |
 | Platforms | Web (JS) | [Link](docs/Platforms/Web%20%28JS%29/overview.md) | - | [Link](docs/Platforms/Web%20%28JS%29/usage.md) |
 | Platforms | Ktor | [Link](docs/Platforms/Ktor/overview.md) | - | [Link](docs/Platforms/Ktor/usage.md) |
 | Platforms | Supabase | [Link](docs/Platforms/Supabase/overview.md) | - | [Link](docs/Platforms/Supabase/usage.md) |
-| Base Setup | Compose Multiplatform | [Link](docs/Base%20Setup/Compose%20Multiplatform/overview.md) | - | - |
-| Base Setup | Jetpack Navigation | [Link](docs/Base%20Setup/Jetpack%20Navigation/overview.md) | - | [Link](docs/Base%20Setup/Jetpack%20Navigation/usage.md) |
-| Base Setup | Material 3 | [Link](docs/Base%20Setup/Material%203/overview.md) | - | [Link](docs/Base%20Setup/Material%203/usage.md) |
-| Base Setup | Koin | [Link](docs/Base%20Setup/Koin/overview.md) | - | - |
-| Base Setup | Gradle (Kotlin DSL) | [Link](docs/Base%20Setup/Gradle%20%28Kotlin%20DSL%29/overview.md) | - | - |
-| Data Flows | Ktor HTTP Client | [Link](docs/Data%20Flows/Ktor%20HTTP%20Client/overview.md) | - | [Link](docs/Data%20Flows/Ktor%20HTTP%20Client/usage.md) |
-| Data Flows | Korlibs Crypto Library | [Link](docs/Data%20Flows/Korlibs%20Crypto%20Library/overview.md) | - | [Link](docs/Data%20Flows/Korlibs%20Crypto%20Library/usage.md) |
-| Data Flows | Basic Cache API | [Link](docs/Data%20Flows/Basic%20Cache%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Cache%20API/usage.md) |
-| Data Flows | Basic Config API | [Link](docs/Data%20Flows/Basic%20Config%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Config%20API/usage.md) |
-| Data Flows | SQLDelight | [Link](docs/Data%20Flows/SQLDelight/overview.md) | - | [Link](docs/Data%20Flows/SQLDelight/usage.md) |
-| Data Flows | SQLite (Jetpack Room) | [Link](docs/Data%20Flows/SQLite%20%28Jetpack%20Room%29/overview.md) | - | [Link](docs/Data%20Flows/SQLite%20%28Jetpack%20Room%29/usage.md) |
-| Data Flows | Multiplatform Paging Library | [Link](docs/Data%20Flows/Multiplatform%20Paging%20Library/overview.md) | - | [Link](docs/Data%20Flows/Multiplatform%20Paging%20Library/usage.md) |
-| Data Flows | Basic Analytics API | [Link](docs/Data%20Flows/Basic%20Analytics%20API/overview.md) | - | [Link](docs/Data%20Flows/Basic%20Analytics%20API/usage.md) |
-| Data Flows | Gemini AI | [Link](docs/Data%20Flows/Gemini%20AI/overview.md) | - | [Link](docs/Data%20Flows/Gemini%20AI/usage.md) |
-| User Flows | Coil Image Library | [Link](docs/User%20Flows/Coil%20Image%20Library/overview.md) | - | [Link](docs/User%20Flows/Coil%20Image%20Library/usage.md) |
-| User Flows | Markdown Text Renderer | [Link](docs/User%20Flows/Markdown%20Text%20Renderer/overview.md) | - | [Link](docs/User%20Flows/Markdown%20Text%20Renderer/usage.md) |
-| User Flows | Adaptive Navigation | [Link](docs/User%20Flows/Adaptive%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Adaptive%20Navigation/usage.md) |
-| User Flows | Bottom Navigation | [Link](docs/User%20Flows/Bottom%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Bottom%20Navigation/usage.md) |
-| User Flows | Dismissible Navigation | [Link](docs/User%20Flows/Dismissible%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Dismissible%20Navigation/usage.md) |
-| User Flows | Modal Navigation | [Link](docs/User%20Flows/Modal%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Modal%20Navigation/usage.md) |
-| User Flows | Permanent Navigation | [Link](docs/User%20Flows/Permanent%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Permanent%20Navigation/usage.md) |
-| User Flows | Rail Navigation | [Link](docs/User%20Flows/Rail%20Navigation/overview.md) | - | [Link](docs/User%20Flows/Rail%20Navigation/usage.md) |
-| User Flows | Save Theme API | [Link](docs/User%20Flows/Save%20Theme%20API/overview.md) | - | [Link](docs/User%20Flows/Save%20Theme%20API/usage.md) |
-| User Flows | Change Theme Screen | [Link](docs/User%20Flows/Change%20Theme%20Screen/overview.md) | - | [Link](docs/User%20Flows/Change%20Theme%20Screen/usage.md) |
-| User Flows | Toggle Theme Button | [Link](docs/User%20Flows/Toggle%20Theme%20Button/overview.md) | - | [Link](docs/User%20Flows/Toggle%20Theme%20Button/usage.md) |
-| User Flows | Auth Flow | [Link](docs/User%20Flows/Auth%20Flow/overview.md) | - | [Link](docs/User%20Flows/Auth%20Flow/usage.md) |
-| User Flows | Passcode Flow | [Link](docs/User%20Flows/Passcode%20Flow/overview.md) | - | [Link](docs/User%20Flows/Passcode%20Flow/usage.md) |
-| User Flows | FileKit | [Link](docs/User%20Flows/FileKit/overview.md) | - | [Link](docs/User%20Flows/FileKit/usage.md) |
+| Dev Tools | Compose Hot Reload | [Link](docs/Dev%20Tools/Compose%20Hot%20Reload/overview.md) | - | [Link](docs/Dev%20Tools/Compose%20Hot%20Reload/usage.md) |
 | Dev Tools | kotlin-logging | [Link](docs/Dev%20Tools/kotlin-logging/overview.md) | - | [Link](docs/Dev%20Tools/kotlin-logging/usage.md) |
 | Dev Tools | Kermit | [Link](docs/Dev%20Tools/Kermit/overview.md) | - | [Link](docs/Dev%20Tools/Kermit/usage.md) |
 | Dev Tools | Napier | [Link](docs/Dev%20Tools/Napier/overview.md) | - | [Link](docs/Dev%20Tools/Napier/usage.md) |
-| Dev Tools | Compose Hot Reload | [Link](docs/Dev%20Tools/Compose%20Hot%20Reload/overview.md) | - | [Link](docs/Dev%20Tools/Compose%20Hot%20Reload/usage.md) |
-| Guides | README.md | [Link](docs/Guides/README.md/overview.md) | - | - |
-| Guides | Feature Showcases | [Link](docs/Guides/Feature%20Showcases/overview.md) | - | - |
-| Guides | Feature Template | [Link](docs/Guides/Feature%20Template/overview.md) | - | [Link](docs/Guides/Feature%20Template/usage.md) |
+| Data Layer | Ktor HTTP Client | [Link](docs/Data%20Layer/Ktor%20HTTP%20Client/overview.md) | - | [Link](docs/Data%20Layer/Ktor%20HTTP%20Client/usage.md) |
+| Data Layer | Multiplatform Settings | [Link](docs/Data%20Layer/Multiplatform%20Settings/overview.md) | - | [Link](docs/Data%20Layer/Multiplatform%20Settings/usage.md) |
+| Data Layer | Korlibs Crypto Library | [Link](docs/Data%20Layer/Korlibs%20Crypto%20Library/overview.md) | - | [Link](docs/Data%20Layer/Korlibs%20Crypto%20Library/usage.md) |
+| Data Layer | Basic Cache API | [Link](docs/Data%20Layer/Basic%20Cache%20API/overview.md) | - | [Link](docs/Data%20Layer/Basic%20Cache%20API/usage.md) |
+| Data Layer | Basic Config API | [Link](docs/Data%20Layer/Basic%20Config%20API/overview.md) | - | [Link](docs/Data%20Layer/Basic%20Config%20API/usage.md) |
+| Data Layer | SQLDelight | [Link](docs/Data%20Layer/SQLDelight/overview.md) | - | [Link](docs/Data%20Layer/SQLDelight/usage.md) |
+| Data Layer | SQLite (Jetpack Room) | [Link](docs/Data%20Layer/SQLite%20%28Jetpack%20Room%29/overview.md) | - | [Link](docs/Data%20Layer/SQLite%20%28Jetpack%20Room%29/usage.md) |
+| Data Layer | Multiplatform Paging Library | [Link](docs/Data%20Layer/Multiplatform%20Paging%20Library/overview.md) | - | [Link](docs/Data%20Layer/Multiplatform%20Paging%20Library/usage.md) |
+| Data Layer | Basic Analytics API | [Link](docs/Data%20Layer/Basic%20Analytics%20API/overview.md) | - | [Link](docs/Data%20Layer/Basic%20Analytics%20API/usage.md) |
+| Data Layer | Gemini AI | [Link](docs/Data%20Layer/Gemini%20AI/overview.md) | - | [Link](docs/Data%20Layer/Gemini%20AI/usage.md) |
+| UI Layer | Coil Image Library | [Link](docs/UI%20Layer/Coil%20Image%20Library/overview.md) | - | [Link](docs/UI%20Layer/Coil%20Image%20Library/usage.md) |
+| UI Layer | Markdown Text Renderer | [Link](docs/UI%20Layer/Markdown%20Text%20Renderer/overview.md) | - | [Link](docs/UI%20Layer/Markdown%20Text%20Renderer/usage.md) |
+| UI Layer | FileKit | [Link](docs/UI%20Layer/FileKit/overview.md) | - | [Link](docs/UI%20Layer/FileKit/usage.md) |
+| User Features | Stub Auth | [Link](docs/User%20Features/Stub%20Auth/overview.md) | - | [Link](docs/User%20Features/Stub%20Auth/usage.md) |
+| User Features | Supabase Auth | [Link](docs/User%20Features/Supabase%20Auth/overview.md) | - | [Link](docs/User%20Features/Supabase%20Auth/usage.md) |
+| User Features | Basic Loader | [Link](docs/User%20Features/Basic%20Loader/overview.md) | - | [Link](docs/User%20Features/Basic%20Loader/usage.md) |
+| User Features | Basic Navigation | [Link](docs/User%20Features/Basic%20Navigation/overview.md) | - | [Link](docs/User%20Features/Basic%20Navigation/usage.md) |
+| User Features | Basic Passcode | [Link](docs/User%20Features/Basic%20Passcode/overview.md) | - | [Link](docs/User%20Features/Basic%20Passcode/usage.md) |
+| User Features | Basic Splash | [Link](docs/User%20Features/Basic%20Splash/overview.md) | - | [Link](docs/User%20Features/Basic%20Splash/usage.md) |
+| User Features | Basic Theme | [Link](docs/User%20Features/Basic%20Theme/overview.md) | - | [Link](docs/User%20Features/Basic%20Theme/usage.md) |

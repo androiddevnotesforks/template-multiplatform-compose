@@ -23,7 +23,7 @@ object AndroidPlatformProcessor : PlatformProcessor() {
             RemoveFile()
         )
         state.onApplyRules(
-            "${Rules.AppAssembleDir}/android",
+            "${Rules.ClientAssembleDir}/android",
             RemoveFile()
         )
         state.onApplyRules(
@@ -46,5 +46,4 @@ object AndroidPlatformProcessor : PlatformProcessor() {
             )
         )
     }
-
 }

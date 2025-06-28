@@ -3,6 +3,8 @@
 package kotli.template.multiplatform.compose
 
 import kotli.engine.DefaultTemplateRegistry
+import kotli.engine.FeatureProcessor
+import kotli.engine.FeatureProvider
 import kotli.engine.generator.GradleProjectGenerator
 import kotli.engine.generator.PathOutputGenerator
 import kotli.engine.generator.ZipOutputGenerator
@@ -73,7 +75,7 @@ class MultiplatformComposeTemplateProcessorTest {
     @Test
     fun `feature providers are unique`() {
         val providers = processor.getFeatureProviders()
-        val notUnique = providers.groupBy { it.getId() }.filter { it.value.size > 1 }
+        val notUnique = providers.groupBy(FeatureProvider::getId).filter { it.value.size > 1 }
         notUnique.forEach { group ->
             Assertions.fail(group.value.toString())
         }
@@ -82,7 +84,7 @@ class MultiplatformComposeTemplateProcessorTest {
     @Test
     fun `feature processors are unique`() {
         val processors = processor.getFeatureProviders().map { it.getProcessors() }.flatten()
-        val notUnique = processors.groupBy { it.getId() }.filter { it.value.size > 1 }
+        val notUnique = processors.groupBy(FeatureProcessor::getId).filter { it.value.size > 1 }
         notUnique.forEach { group ->
             Assertions.fail(group.value.toString())
         }
@@ -138,7 +140,7 @@ class MultiplatformComposeTemplateProcessorTest {
         }
     }
 
-    @RepeatedTest(1)
+    @Test
     fun `compose template with random features`() {
         runBlocking {
             val processors = processor.getFeatureProviders()
@@ -151,6 +153,9 @@ class MultiplatformComposeTemplateProcessorTest {
             }
             features.add(Feature(AndroidPlatformProcessor.ID))
             logger.debug("features :: {} -> {}", features.size, features.map { it.id })
+            logger.debug(
+                "processors :: features:\n{}\n",
+                processors.joinToString(",\n") { "Feature(${it.javaClass.name}.getId())" })
             val layer = Layer(
                 id = UUID.randomUUID().toString(),
                 processorId = processor.getId(),
@@ -163,5 +168,4 @@ class MultiplatformComposeTemplateProcessorTest {
             gradleGenerator.generate(layer)
         }
     }
-
 }

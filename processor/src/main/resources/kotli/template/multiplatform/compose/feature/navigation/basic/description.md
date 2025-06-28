@@ -1,0 +1,1 @@
+The `Navigation Feature` provides functionality for managing navigation in your application. It supports different navigation types (Adaptive, Bottom, Dismissable, Modal, Permanent, Rail) and allows you to set navigation items with icons and labels.

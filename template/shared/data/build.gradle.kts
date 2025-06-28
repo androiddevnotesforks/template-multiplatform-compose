@@ -6,13 +6,7 @@ plugins {
 
 kotlin {
     // {platform.android.target}
-    androidTarget {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = libs.versions.android.jvmTarget.get()
-            }
-        }
-    }
+    androidTarget()
     // {platform.android.target}
     // {platform.ios.target}
     iosX64()
@@ -31,10 +25,12 @@ kotlin {
     sourceSets {
         all {
             languageSettings {
+                optIn("kotlin.time.ExperimentalTime")
                 optIn("kotlin.ExperimentalStdlibApi")
                 optIn("kotlinx.coroutines.DelicateCoroutinesApi")
                 optIn("kotlin.io.encoding.ExperimentalEncodingApi")
                 optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+                optIn("kotlinx.datetime.format.FormatStringsInDatetimeFormats")
             }
         }
         commonMain.dependencies {
@@ -45,7 +41,7 @@ kotlin {
             implementation(libs.generativeai)
             implementation(libs.korlibs.crypto)
             implementation(libs.cashapp.paging.common)
-            implementation(libs.multiplatform.settings.no.arg) // {dataflow.settings.multiplatform}
+            implementation(libs.multiplatform.settings.no.arg) // {data.settings.multiplatform}
             implementation(libs.multiplatform.expressions.evaluator)
             implementation(libs.touchlab.stately.concurrent.collections) // {common.stately-collections}
         }
@@ -79,7 +75,7 @@ kotlin {
             dependsOn(commonMain.get())
             dependencies {
                 implementation(libs.androidx.paging.common)
-                implementation(libs.androidx.datastore.preferences) // {dataflow.settings.datastore}
+                implementation(libs.androidx.datastore.preferences) // {data.settings.datastore}
             }
         }
         androidMain.get().dependsOn(mobileAndDesktopMain) // {platform.android}
