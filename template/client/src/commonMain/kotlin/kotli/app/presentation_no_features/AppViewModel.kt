@@ -11,6 +11,7 @@ class AppViewModel(
 
     override fun doBind() {
         withState {
+            themeState.currentConfig = themeState.defaultConfig
             state.setStartDestination(HomeRoute)
         }
     }

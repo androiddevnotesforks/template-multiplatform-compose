@@ -41,7 +41,7 @@ object KtorProcessor : PlatformProcessor() {
         )
         state.onApplyRules(
             Rules.RootSettingsGradle,
-            RemoveMarkedLine("backend")
+            RemoveMarkedLine("server")
         )
         state.onApplyRules(
             VersionCatalogRules(

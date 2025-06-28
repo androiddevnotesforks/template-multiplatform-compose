@@ -115,20 +115,20 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
 
         // User Features
         CommonFeatureProvider,
+        SplashFeatureProvider,
+        ThemeFeatureProvider,
+        PasscodeFeatureProvider,
+        NavigationFeatureProvider,
+        AuthFeatureProvider,
         AdsFeatureProvider,
         AnalyticsFeatureProvider,
-        AuthFeatureProvider,
         LoaderFeatureProvider,
-        NavigationFeatureProvider,
         OnboardingFeatureProvider,
-        PasscodeFeatureProvider,
         PaymentsFeatureProvider,
         ProfileFeatureProvider,
         RateFeatureProvider,
         SettingsFeatureProvider,
-        SplashFeatureProvider,
         SupportFeatureProvider,
-        ThemeFeatureProvider,
         UpdateFeatureProvider
     )
 
