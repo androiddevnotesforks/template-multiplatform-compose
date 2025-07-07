@@ -22,7 +22,6 @@ import kotli.template.multiplatform.compose.data.http.HttpProvider
 import kotli.template.multiplatform.compose.data.paging.PagingProvider
 import kotli.template.multiplatform.compose.data.settings.SettingsProvider
 import kotli.template.multiplatform.compose.dev.debugging.DebuggingProvider
-import kotli.template.multiplatform.compose.dev.debugging.hotreload.HotReloadProcessor
 import kotli.template.multiplatform.compose.dev.logging.LoggingProvider
 import kotli.template.multiplatform.compose.feature.ads.AdsFeatureProvider
 import kotli.template.multiplatform.compose.feature.analytics.AnalyticsFeatureProvider
@@ -69,8 +68,7 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
             features = listOf(
                 Feature(IOSPlatformProcessor.ID),
                 Feature(AndroidPlatformProcessor.ID),
-                Feature(JvmPlatformProcessor.ID),
-                Feature(HotReloadProcessor.ID)
+                Feature(JvmPlatformProcessor.ID)
             )
         )
     )
@@ -172,6 +170,14 @@ object MultiplatformComposeTemplateProcessor : BaseTemplateProcessor() {
                 text = "kotli",
                 marker = "{kotli.namespace}",
                 replacer = state.layer.namespace
+            )
+        )
+        state.onApplyRules(
+            Rules.ClientBuildGradle,
+            ReplaceMarkedText(
+                text = "kotli",
+                marker = "{kotli.name}",
+                replacer = state.layer.name
             )
         )
         state.onApplyRules(

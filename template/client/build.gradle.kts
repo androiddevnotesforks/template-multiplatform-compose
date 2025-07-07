@@ -206,7 +206,7 @@ compose.desktop {
                 org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi,
                 org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb
             )
-            packageName = "kotli" // {kotli.namespace}
+            packageName = "kotli" // {kotli.name}
             packageVersion = "1.0.0"
             modules(
                 "java.sql",
