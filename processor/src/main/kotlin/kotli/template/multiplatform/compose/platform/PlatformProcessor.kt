@@ -17,7 +17,7 @@ abstract class PlatformProcessor : BaseFeatureProcessor() {
     override fun getIntegrationUrl(state: TemplateState): String =
         "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html"
 
-    override fun getIntegrationEstimate(state: TemplateState): Long = 1.hours.inWholeMilliseconds
+    override fun getIntegrationEstimate(state: TemplateState): Long = 0.hours.inWholeMilliseconds
     override fun dependencies(): List<KClass<out FeatureProcessor>> = emptyList()
 
     protected val platformLine by lazy { "{${getId()}}" }
